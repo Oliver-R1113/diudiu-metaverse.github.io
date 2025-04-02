@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>R's Metaverse</title>
+    <link rel="stylesheet" href="../json/00css.css">
+</head>
+<body>
+    <h1 class="topmargin" font-size="100px">丢丢の元宇宙</h1>
+    <div class="header">
+        <div class="header-item active" data-target="home">首页</div>
+        <div class="header-item" data-target="life">生活</div>
+        <div class="header-item" data-target="reading">阅读</div>
+        <div class="header-item" data-target="movie">影视</div>
+    </div>
+    <div class="content">
+        <div class="page active" id="home">
+            <h2>首页内容</h2>
+            <p>这里是首页的相关内容。</p>
+        </div>
+        <div class="page" id="life">
+            <h2>生活内容</h2>
+            <p>这里是生活板块的相关内容。</p>
+        </div>
+        <div class="page" id="reading">
+            <h2>阅读内容</h2>
+            <p>这里是阅读板块的相关内容。</p>
+        </div>
+        <div class="page" id="movie">
+            <h2>影视内容</h2>
+            <p>这里是影视板块的相关内容。</p>
+        </div>
+    </div>
+   
+    <script>
+        const headerItems = document.querySelectorAll('.header-item');
+        const pages = document.querySelectorAll('.page');
+
+        headerItems.forEach(item => {
+            item.addEventListener('click', function () {
+                headerItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+
+                const target = this.dataset.target;
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                    if (page.id === target) {
+                        page.classList.add('active');
+                    }
+                });
+            });
+        });
+
+    </script>
+   
+</body>
+</html>
